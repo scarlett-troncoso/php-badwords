@@ -7,7 +7,7 @@ Il secondo file riceverà la richiesta ed eseguirà queste operazioni:
 - stampare di nuovo il paragrafo e la sua lunghezza, dopo aver sostituito con tre asterischi (***) tutte le occorrenze della parola da censurare
 */
 
-$paragraph = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab quo odio cum. Distinctio quod iusto odio consequatur eos, quo delectus necessitatibus corrupti. Necessitatibus corrupti, sequi aut ipsam alias soluta laborum?';
+$paragraph = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab quo odio cum. Distinctio quod iusto odio consequatur eos, quo delectus necessitatibus corrupti. Necessitatibus corrupti, sequi aut ipsam alias soluta laborum? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab quo odio cum. Distinctio quod iusto odio consequatur eos, quo delectus necessitatibus corrupti. Necessitatibus corrupti, sequi aut ipsam alias soluta laborum?';
 
 ?>
 <!doctype html>
@@ -27,31 +27,22 @@ $paragraph = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab quo o
     </head>
 
     <body>
-        <?php if (!empty($_GET) && in_array('name', $_GET)) : ?> 
-                <p>
-                ciao 
-                    <?php echo $_GET['name'] . ' ' . 'MESSAGIO DI BENVENUTO'?>
-
-                </p>
-
-            <?php endif; ?>
        <div class="container">
             <h2 class="mt-5 mb-3"> Censor Word</h2>
-            <form action="./server.php" method="get"> 
+            <form action="./server.php" method="post"> 
                 <div class="mb-3">
-                    <label for="paragraph" class="form-label">Name</label>
-                    <input type="text" class="form-control" name="paragraph" id="paragraph" aria-describedby="paragraphHelp" placeholder="Type paragraph"/>
-                    <small id="paragraphHelp" class="form-text text-muted">Add a paragraph to censor</small>
+                    <label for="paragraph" class="form-label">Paragraph</label>
+                    <textarea name="paragraph" id="paragraph" cols="30" rows="10" class="form-control"></textarea>
+                    <small id="paragraphHelp" class="form-text text-muted">Add paragraph to censor</small>
                 </div>
 
                 <div class="mb-3">
                     <label for="word" class="form-label">Parola</label>
                     <input type="text" class="form-control" name="word" id="word" aria-describedby="wordHelp" placeholder="Type a word"/>
-                    <small id="wordHelp" class="form-text text-muted">Add a paragraph to censor</small>
+                    <small id="wordHelp" class="form-text text-muted">Add word to censor</small>
                 </div>
 
-                <button type="submit" class="btn btn-primary"> 
-                </button>
+                <button type="submit" class="btn btn-primary"> Censor </button>
             </form>
        </div>
         

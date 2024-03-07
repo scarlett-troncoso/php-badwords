@@ -12,4 +12,13 @@ var_dump($paragraphToCensor, $wordToCensor);
 echo 'Original Paragraph: ' . $paragraphToCensor;
 echo '<br/>';
 echo 'Original Paragraph Length: ' . strlen($paragraphToCensor);
+
+echo '<br/>';
+
+// var_dump(str_replace($wordToCensor, '***', $paragraphToCensor)); 
+$censorParagraph = str_replace($wordToCensor, '***', $paragraphToCensor);
+
+echo 'Original Paragraph: ' . $censorParagraph;
+echo '<br/>';
+echo 'Original Paragraph Length: ' . strlen($censorParagraph);
 ?>
